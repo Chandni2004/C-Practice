@@ -1,0 +1,54 @@
+#include<stdio.h>
+int and(int*,int*);
+int or(int*,int*);
+int not(int*);
+int notOp(int*);
+
+int main()
+{
+	int p=10,q=20;
+	printf("Address of p: %p\n", &p);
+    printf("Address of q: %p\n", &q);
+	printf("And operator: %d\n",and(&p,&q));
+	printf("Or operator: %d\n",or(&p,&q));
+	printf("Not operator for p: %d\n",not(&p));
+	printf("Not operator for q: %d\n",notOp(&q));
+	return 0;
+}
+int and(int *x,int *y)
+{
+    printf("\nInside AND function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+	return *x && *y;
+}
+int or(int *x,int *y)
+{
+    printf("\nInside OR function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+	return *x || *y;
+}
+int not(int *x)
+{
+    printf("\nInside NOT function:\n");
+    
+    printf("Address of x: %p\n",&x);
+    
+    printf("Value of *x: %d\n",*x);
+
+	return !(*x);
+}
+int notOp(int *y)
+{
+    printf("\nInside NOTOp function:\n");
+    
+    printf("Address of y: %p\n",&y);
+    
+    printf("Value of *y: %d\n",*y);
+	return !(*y);
+}

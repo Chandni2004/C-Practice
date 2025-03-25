@@ -1,0 +1,53 @@
+#include <stdio.h>
+int bitwiseAnd(int x, int y);
+int bitwiseOr(int x, int y);
+int bitwiseXor(int x, int y);
+int bitwiseNot(int x);
+int leftShift(int x, int shift);
+int rightShift(int x, int shift);
+
+int main() {
+    int p = 10, q = 5, shift = 1;
+
+    printf("Bitwise AND: %d\n", bitwiseAnd(p, q));
+    printf("Bitwise OR: %d\n", bitwiseOr(p, q));  
+    printf("Bitwise XOR: %d\n", bitwiseXor(p, q));
+    printf("Bitwise NOT of p: %d\n", bitwiseNot(p));
+    printf("Left Shift p by %d: %d\n", shift, leftShift(p, shift));
+    printf("Right Shift p by %d: %d\n", shift, rightShift(p, shift));
+
+    return 0;
+}
+
+int bitwiseAnd(int x, int y) {
+    int *a = &x;
+    int *b = &y;
+    return (*a & *b);  
+}
+
+int bitwiseOr(int x, int y) {
+    int *a = &x;
+    int *b = &y;
+    return (*a | *b);  
+}
+
+int bitwiseXor(int x, int y) {
+    int *a = &x;
+    int *b = &y;
+    return (*a ^ *b); 
+}
+
+int bitwiseNot(int x) {
+    int *a = &x;
+    return ~(*a);  
+}
+
+int leftShift(int x, int shift) {
+    int *a = &x;
+    return (*a << shift);  
+}
+
+int rightShift(int x, int shift) {
+    int *a = &x;
+    return (*a >> shift);  
+}

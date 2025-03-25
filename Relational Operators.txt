@@ -1,0 +1,49 @@
+#include<stdio.h>
+int equal(int x, int y);
+int notEqual(int x, int y);
+int greaterThan(int x, int y);
+int lessThan(int x, int y);
+int greaterThanOrEqual(int x, int y);
+int lessThanOrEqual(int x, int y);
+
+int main() {
+    int p = 10, q = 20;
+
+    printf("Equal to: %d\n", equal(p, q));
+    printf("Not Equal to: %d\n", notEqual(p, q));
+    printf("Greater Than to: %d\n", greaterThan(p, q));
+    printf("Less Than to: %d\n", lessThan(p, q));
+    printf("Greater Than or Equal to: %d\n", greaterThanOrEqual(p, q));
+    printf("Less Than or Equal to: %d\n", lessThanOrEqual(p, q));
+    return 0;
+}
+int equal(int x, int y) {
+    int *a = &x;
+    int *b = &y;
+    return *a == *b;
+}
+int notEqual(int x, int y) {
+    int *a = &x;
+    int *b = &y;
+    return *a != *b;
+}
+int greaterThan(int x, int y) {
+    int *a = &x;
+    int *b = &y;
+    return *a > *b;
+}
+int lessThan(int x, int y) {
+    int *a = &x;
+    int *b = &y;
+    return *a < *b;
+}
+int greaterThanOrEqual(int x, int y) {
+    int *a = &x;
+    int *b = &y;
+    return *a >= *b;
+}
+int lessThanOrEqual(int x, int y) {
+    int *a = &x;
+    int *b = &y;
+    return *a <= *b;
+}

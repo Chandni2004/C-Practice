@@ -1,0 +1,38 @@
+#include <stdio.h>
+int min(int x, int y);
+int max(int x, int y);
+int equal(int x, int y);
+int notEqual(int x, int y);
+
+int main() {
+    int p = 10, q = 5;
+    printf("Minimum Value: %d\n", min(p, q));
+    printf("Maximum Value: %d\n", max(p, q));
+    printf("Equal: %d\n", equal(p, q));
+    printf("Not Equal: %d\n", notEqual(p, q));
+    return 0;
+}
+
+int min(int x, int y) {
+    int *a = &x;
+    int *b = &y;
+    return (*a < *b) ? *a : *b; 
+}
+
+int max(int x, int y) {
+    int *a = &x;
+    int *b = &y;
+    return (*a > *b) ? *a : *b;  
+}
+
+int equal(int x, int y) {
+    int *a = &x;
+    int *b = &y;
+    return (*a == *b) ? 1 : 0;  
+}
+
+int notEqual(int x, int y) {
+    int *a = &x;
+    int *b = &y;
+    return (*a != *b) ? 1 : 0;  
+}

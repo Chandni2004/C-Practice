@@ -1,0 +1,68 @@
+#include<stdio.h>
+int equal(int*, int*);
+int notEqual(int*, int*);
+int greaterThan(int*, int*);
+int lessThan(int*, int*);
+int greaterThanOrEqual(int*, int*);
+int lessThanOrEqual(int*, int*);
+
+int main() {
+    int p = 10, q = 20;
+	printf("Address of p: %p\n", &p);
+    printf("Address of q: %p\n", &q);
+    printf("Equal to: %d\n", equal(&p, &q));
+    printf("Not Equal to: %d\n", notEqual(&p, &q));
+    printf("Greater Than to: %d\n", greaterThan(&p, &q));
+    printf("Less Than to: %d\n", lessThan(&p, &q));
+    printf("Greater Than or Equal to: %d\n", greaterThanOrEqual(&p, &q));
+    printf("Less Than or Equal to: %d\n", lessThanOrEqual(&p, &q));
+    return 0;
+}
+int equal(int *x, int *y) {
+    printf("\nInside equal function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return *x == *y;
+}
+int notEqual(int *x, int *y) {
+    printf("\nInside notequal function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return *x != *y;
+}
+int greaterThan(int *x, int *y) {
+    printf("\nInside greaterthan function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return *x > *y;
+}
+int lessThan(int *x, int *y) {
+    printf("\nInside lessthan function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return *x < *y;
+}
+int greaterThanOrEqual(int *x, int *y) {
+    printf("\nInside greaterthanorequal function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return *x >= *y;
+}
+int lessThanOrEqual(int *x, int *y) {
+    printf("\nInside lessthanorequal function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return *x <= *y;
+}

@@ -1,0 +1,52 @@
+#include <stdio.h>
+int min(int*, int*);
+int max(int*, int*);
+int equal(int*, int*);
+int notEqual(int*, int*);
+
+int main() {
+    int p = 10, q = 5;
+    printf("Address of p: %p\n", &p);
+    printf("Address of q: %p\n", &q);
+    printf("Minimum Value: %d\n", min(&p, &q));
+    printf("Maximum Value: %d\n", max(&p, &q));
+    printf("Equal: %d\n", equal(&p, &q));
+    printf("Not Equal: %d\n", notEqual(&p, &q));
+    return 0;
+}
+
+int min(int *x, int *y) {
+    printf("\nInside min function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return (*x < *y) ? *x : *y; 
+}
+
+int max(int *x, int *y) {
+    printf("\nInside max function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return (*x > *y) ? *x : *y;  
+}
+
+int equal(int *x, int *y) {
+    printf("\nInside equal function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return (*x == *y) ? 1 : 0;  
+}
+
+int notEqual(int *x, int *y) {
+    printf("\nInside notequal function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return (*x!= *y) ? 1 : 0;  
+}

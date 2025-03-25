@@ -1,0 +1,68 @@
+#include<stdio.h>
+int assign(int*, int*);
+int addAssign(int*, int*);
+int subAssign(int*, int*);
+int mulAssign(int*, int*);
+int divAssign(int*, int*);
+int modAssign(int*, int*);
+
+int main() {
+    int p = 10, q = 5;
+	printf("Address of p: %p\n", &p);
+    printf("Address of q: %p\n", &q);
+    printf("Assign: %d\n", assign(&p, &q));
+    printf("Add Assign: %d\n", addAssign(&p, &q));
+    printf("Subtract Assign: %d\n", subAssign(&p, &q));
+    printf("Multiply Assign: %d\n", mulAssign(&p, &q));
+    printf("Divide Assign: %d\n", divAssign(&p, &q));
+    printf("Modulus Assign: %d\n", modAssign(&p, &q));
+    return 0;
+}
+int assign(int *x, int *y) {
+    printf("\nInside assign function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return *x = *y;
+}
+int addAssign(int *x, int *y) {
+    printf("\nInside addassign function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return *x += *y;
+}
+int subAssign(int *x, int *y) {
+    printf("\nInside subassign function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return *x -= *y;
+}
+int mulAssign(int *x, int *y) {
+    printf("\nInside mulassign function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return *x *= *y;
+}
+int divAssign(int *x, int *y) {
+    printf("\nInside divassign function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return *x /= *y;
+}
+int modAssign(int *x, int *y) {
+    printf("\nInside modassign function:\n");
+    
+    printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+    
+    printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+    return *x %= *y;
+}

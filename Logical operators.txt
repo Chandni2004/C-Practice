@@ -1,0 +1,43 @@
+#include<stdio.h>
+int and(int x,int y);
+int or(int x,int y);
+int not(int x);
+int notOp(int y);
+
+int main()
+{
+	int p=10,q=20;
+	printf("And operator: %d\n",and(p,q));
+	printf("Or operator: %d\n",or(p,q));
+	printf("Not operator for p: %d\n",not(p));
+	printf("Not operator for q: %d\n",notOp(q));
+	return 0;
+}
+int and(int x,int y)
+{
+	int *a;
+	int *b;
+	a=&x;
+	b=&y;
+	return *a && *b;
+}
+int or(int x,int y)
+{
+	int *a;
+	int *b;
+	a=&x;
+	b=&y;
+	return *a || *b;
+}
+int not(int x)
+{
+	int *a;
+	a=&x;
+	return !(*a);
+}
+int notOp(int y)
+{
+	int *b;
+	b=&y;
+	return !(*b);
+}

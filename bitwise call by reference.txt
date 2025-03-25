@@ -1,0 +1,75 @@
+#include <stdio.h>
+int bitwiseAnd(int*,int*);
+int bitwiseOr(int*,int*);
+int bitwiseXor(int*,int*);
+int bitwiseNot(int*);
+int leftShift(int*,int*);
+int rightShift(int*,int*);
+
+int main() {
+	int p = 10, q = 5, shift = 1;
+	printf("Address of p: %p\n", &p);
+	printf("Address of q: %p\n", &q);
+	printf("Bitwise AND: %d\n", bitwiseAnd(&p, &q));
+	printf("Bitwise OR: %d\n", bitwiseOr(&p, &q));
+	printf("Bitwise XOR: %d\n", bitwiseXor(&p, &q));
+	printf("Bitwise NOT of p: %d\n", bitwiseNot(&p));
+	printf("Left Shift p by %d: %d\n", shift, leftShift(&p, &shift));
+	printf("Right Shift p by %d: %d\n", shift, rightShift(&p, &shift));
+
+	return 0;
+}
+
+int bitwiseAnd(int *x, int *y) {
+	printf("\nInside bitwiseAnd function:\n");
+
+	printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+
+	printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+	return (*x & *y);
+}
+
+int bitwiseOr(int *x, int *y) {
+	printf("\nInside bitwiseOr function:\n");
+
+	printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+
+	printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+	return (*x| *y);
+}
+
+int bitwiseXor(int *x, int *y) {
+	printf("\nInside bitwiseXor function:\n");
+
+	printf("Address of x: %p\nAddress of y: %p\n",&x,&y);
+
+	printf("Value of *x: %d\nValue of *y: %d\n", *x, *y);
+	return (*x ^ *y);
+}
+
+int bitwiseNot(int *x) {
+	printf("\nInside bitwiseNot function:\n");
+
+	printf("Address of x: %p\n",&x);
+
+	printf("Value of *x: %d\n", *x);
+	return ~(*x);
+}
+
+int leftShift(int *x, int *shift) {
+	printf("\nInside leftshift function:\n");
+
+	printf("Address of x: %p\nAddress of y: %p\n",&x,&shift);
+
+	printf("Value of *x: %d\nValue of *y: %d\n", *x, *shift);
+	return (*x << *shift);
+}
+
+int rightShift(int *x, int *shift) {
+	printf("\nInside rightshift function:\n");
+
+	printf("Address of x: %p\nAddress of y: %p\n",&x,&shift);
+
+	printf("Value of *x: %d\nValue of *y: %d\n", *x, *shift);
+	return (*x >> *shift);
+}

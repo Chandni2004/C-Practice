@@ -1,0 +1,243 @@
+#include <stdio.h>
+int my_strlen(char str[]);
+void my_strcpy(char dest[], char src[]);
+int my_strcmp(char str1[], char str2[]);
+void my_strcat(char dest[], char src[]);
+void my_strncpy(char dest[], char src[], int n);
+int my_strncmp(char str1[], char str2[], int n);
+void my_strncat(char dest[], char src[], int n);
+void my_strrev(char str[]);
+void my_strupr(char str[]);
+void my_strlwr(char str[]);
+int my_strchr(char str[], char ch);
+int my_strrchr(char str[], char ch);
+int my_strstr(char str[], char sub[]);
+int my_atoi(char str[]);
+void my_itoa(int num, char str[]);
+// Function to find the length of a string
+int my_strlen(char str[]) {
+	int i = 0;
+	while (str[i] != '\0') {
+		i++;
+	}
+	return i;
+}
+
+// Function to copy one string into another
+void my_strcpy(char dest[], char src[]) {
+	int i;
+	for (i = 0; src[i] != '\0'; i++) {
+		dest[i] = src[i];
+	}
+	dest[i] = '\0';
+}
+
+// Function to compare two strings
+int my_strcmp(char str1[], char str2[]) {
+	int i = 0;
+	while (str1[i] != '\0' && str2[i] != '\0') {
+		if (str1[i] != str2[i]) {
+			return str1[i] - str2[i];
+		}
+		i++;
+	}
+	return str1[i] - str2[i];
+}
+
+// Function to concatenate two strings
+void my_strcat(char dest[], char src[]) {
+	int i = my_strlen(dest);
+	int j = 0;
+	while (src[j] != '\0') {
+		dest[i++] = src[j++];
+	}
+	dest[i] = '\0';
+}
+
+// Function to copy n characters from source to destination
+void my_strncpy(char dest[], char src[], int n) {
+	int i;
+	for (i = 0; i < n && src[i] != '\0'; i++) {
+		dest[i] = src[i];
+	}
+	dest[i] = '\0';
+}
+
+// Function to compare first n characters of two strings
+int my_strncmp(char str1[], char str2[], int n) {
+	int i;
+	for (i = 0; i < n && str1[i] != '\0' && str2[i] != '\0'; i++) {
+		if (str1[i] != str2[i]) {
+			return str1[i] - str2[i];
+		}
+	}
+	return 0;
+}
+
+// Function to concatenate first n characters of source string to destination
+void my_strncat(char dest[], char src[], int n) {
+	int i = my_strlen(dest);
+	int j;
+	for (j = 0; j < n && src[j] != '\0'; j++) {
+		dest[i++] = src[j];
+	}
+	dest[i] = '\0';
+}
+
+// Function to reverse a string
+void my_strrev(char str[]) {
+	int len = my_strlen(str);
+	int i, temp;
+	for (i = 0; i < len / 2; i++) {
+		temp = str[i];
+		str[i] = str[len - i - 1];
+		str[len - i - 1] = temp;
+	}
+}
+
+// Function to convert string to uppercase
+void my_strupr(char str[]) {
+	int i = 0;
+	while (str[i] != '\0') {
+		if (str[i] >= 'a' && str[i] <= 'z') {
+			str[i] = str[i] - 32;
+		}
+		i++;
+	}
+}
+
+// Function to convert string to lowercase
+void my_strlwr(char str[]) {
+	int i = 0;
+	while (str[i] != '\0') {
+		if (str[i] >= 'A' && str[i] <= 'Z') {
+			str[i] = str[i] + 32;
+		}
+		i++;
+	}
+}
+
+// Function to find the first occurrence of a character in a string
+int my_strchr(char str[], char ch) {
+	for (int i = 0; str[i] != '\0'; i++) {
+		if (str[i] == ch) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+// Function to find the last occurrence of a character in a string
+int my_strrchr(char str[], char ch) {
+	int lastIndex = -1;
+	for (int i = 0; str[i] != '\0'; i++) {
+		if (str[i] == ch) {
+			lastIndex = i;
+		}
+	}
+	return lastIndex;
+}
+
+// Function to find substring inside a string
+int my_strstr(char str[], char sub[]) {
+	int lenStr = my_strlen(str);
+	int lenSub = my_strlen(sub);
+
+	for (int i = 0; i <= lenStr - lenSub; i++) {
+		int j;
+		for (j = 0; j < lenSub; j++) {
+			if (str[i + j] != sub[j]) {
+				break;
+			}
+		}
+		if (j == lenSub) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+// Function to convert a string to an integer
+int my_atoi(char str[]) {
+	int num = 0, i = 0, sign = 1;
+
+	if (str[0] == '-') {
+		sign = -1;
+		i++;
+	}
+	while (str[i] != '\0') {
+		num = num * 10 + (str[i] - '0');
+		i++;
+	}
+	return num * sign;
+}
+
+// Function to convert an integer to a string
+void my_itoa(int num, char str[]) {
+	int i = 0, sign = num;
+
+	if (num < 0) {
+		num = -num;
+	}
+	do {
+		str[i++] = (num % 10) + '0';
+		num /= 10;
+	} while (num > 0);
+
+	if (sign < 0) {
+		str[i++] = '-';
+	}
+	str[i] = '\0';
+	my_strrev(str);
+}
+
+int main() {
+	char str1[100] = "hello";
+	char str2[100] = "world";
+	char str3[100];
+	int num;
+	char numStr[20];
+
+	printf("Length of str1: %d\n", my_strlen(str1));
+
+	my_strcpy(str3, str1);
+	printf("Copied str3: %s\n", str3);
+
+	printf("Comparison of str1 and str2: %d\n", my_strcmp(str1, str2));
+
+	my_strcat(str1, str2);
+	printf("Concatenated str1: %s\n", str1);
+
+	my_strncpy(str3, str2, 3);
+	printf("First 3 chars copied: %s\n", str3);
+
+	printf("First 3 chars comparison: %d\n", my_strncmp(str1, str2, 3));
+
+	my_strncat(str1, "123", 2);
+	printf("Concatenated first 2 chars: %s\n", str1);
+
+	my_strrev(str3);
+	printf("Reversed str3: %s\n", str3);
+
+	my_strupr(str3);
+	printf("Uppercase str3: %s\n", str3);
+
+	my_strlwr(str3);
+	printf("Lowercase str3: %s\n", str3);
+
+	printf("First occurrence of 'l': %d\n", my_strchr(str2, 'l'));
+
+	printf("Last occurrence of 'l': %d\n", my_strrchr(str2, 'l'));
+
+	printf("Substring 'or' found at index: %d\n", my_strstr(str2, "or"));
+
+	printf("Enter a number string: ");
+	scanf("%s", str3);
+	num = my_atoi(str3);
+	printf("Converted integer: %d\n", num);
+
+	my_itoa(num, numStr);
+	printf("Converted string: %s\n", numStr);
+
+	return 0;
+}

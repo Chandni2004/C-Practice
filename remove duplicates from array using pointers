@@ -1,0 +1,32 @@
+#include <stdio.h>
+int removeDuplicates(int *arr, int n) {
+    int *ptr1 = arr;    
+    int *ptr2 = arr + 1;
+    int uniqueCount = 1;
+    while (ptr2 < arr + n) {
+        if (*ptr1 != *ptr2) {
+            *(ptr1 + 1) = *ptr2;
+            ptr1++;
+            uniqueCount++;
+        }
+        ptr2++;
+    }
+    return uniqueCount;
+}
+int main() {
+    int arr[100];
+    int n;
+    printf("Enter the number of elements:");
+    scanf("%d",&n);
+    printf("Enter the Elements of the array: ");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    n=removeDuplicates(arr, n);
+    printf("Array after removing duplicates: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}

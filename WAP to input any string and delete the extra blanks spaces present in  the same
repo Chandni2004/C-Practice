@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+ {
+    static char s1[50];
+    char s2[50];
+    char *s, *t;
+    int i, l;
+    printf("Enter a string: ");
+    scanf("%s",s1);
+    s=s1;
+    t=s2;
+    l=strlen(s);
+    for(i=0;i<=l-1;i++)
+    {
+        if(*s==' ')/*check for a blank*/
+        {
+            if(*(s+1)!=' ')
+            {
+                *t=*s;
+                t++;
+            }
+            s++;
+        }
+        else
+        {
+            *t=*s;
+            t++;
+            s++;
+        }
+    }
+    *t='\0';
+    printf("Original Statement:%s\n",s1);
+    printf("Modified Statement:%s",s2);
+    return 0;
+ }
